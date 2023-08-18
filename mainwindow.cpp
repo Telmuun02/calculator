@@ -49,6 +49,10 @@ void MainWindow::on_buttonEqual_clicked()
         result *= ui->textEdit->toPlainText().toFloat();
     }else if(sign == "/"){
         result /= ui->textEdit->toPlainText().toFloat();
+    }else if(sign == "%"){
+        huvaagch = ui->textEdit->toPlainText().toFloat();
+        huvaagch = result / huvaagch;
+        result = result - (result * huvaagch);
     }
     ui->textEdit->setText(QString::number(result));
 }
@@ -155,5 +159,62 @@ void MainWindow::on_buttonCE_clicked()
     ui->textEdit->clear();
     result = 0;
     sign = "";
+}
+
+
+void MainWindow::on_buttondot_clicked()
+{
+    QString num = "6";
+    QString text = ui->textEdit->toPlainText();
+    ui->textEdit->setText(text + num);
+}
+
+
+void MainWindow::on_buttonhasah_clicked()
+{
+    QString num = "";
+    QString text = ui->textEdit->toPlainText();
+    result = ui->textEdit->toPlainText().toFloat();
+    if(result > 0){
+        num = "-";
+    }else if(result == 0){
+    }else if(result < 0){
+        num = "+";
+    }
+    ui->textEdit->clear();
+    ui->textEdit->setText(num+text);
+}
+
+
+void MainWindow::on_buttonuldegdel_clicked()
+{
+    result = ui->textEdit->toPlainText().toFloat();
+    sign = "%";
+    ui->textEdit->clear();
+}
+
+
+void MainWindow::on_buttonkvadrat_clicked()
+{
+    result = ui->textEdit->toPlainText().toFloat();
+    result = result * result;
+    ui->textEdit->setText(QString::number(result));
+}
+
+void MainWindow::on_buttonsqrt_clicked()
+{
+    result = ui->textEdit->toPlainText().toFloat();
+    result = sqrt(result);
+    ui->textEdit->setText(QString::number(result));
+}
+
+
+void MainWindow::on_buttonback_clicked()
+{
+    QString text = ui->textEdit->toPlainText();
+    ui->textEdit->clear();
+    int len = text.size();
+    text.remove(len - 1, len);
+    ui->textEdit->setText(text);
 }
 

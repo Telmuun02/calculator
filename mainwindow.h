@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <math.h>
+
 #include <QMainWindow>
 #include <QString>
 
@@ -53,9 +55,21 @@ private slots:
 
     void on_buttonCE_clicked();
 
+    void on_buttondot_clicked();
+
+    void on_buttonhasah_clicked();
+
+    void on_buttonuldegdel_clicked();
+
+    void on_buttonkvadrat_clicked();
+
+    void on_buttonsqrt_clicked();
+
+    void on_buttonback_clicked();
+
 private:
     Ui::MainWindow *ui;
-    float result;
+    float result, huvaagch;
     long long hariu;
 };
 #endif // MAINWINDOW_H
